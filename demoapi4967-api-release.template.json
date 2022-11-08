@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "apimServiceName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/releases",
+      "name": "[concat(parameters('apimServiceName'), '/echo-api;rev=1/88481c77-f255-4398-9c9a-a171839d094f')]",
+      "properties": {
+        "apiId": "/apis/echo-api;rev=1"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/releases",
+      "name": "[concat(parameters('apimServiceName'), '/hello;rev=1/bbe5037a-6f37-4ea3-97f7-b21cec8efd3d')]",
+      "properties": {
+        "apiId": "/apis/hello;rev=1"
+      }
+    }
+  ]
+}
